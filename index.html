@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AYLA — Quietud Urbana</title>
+  <meta name="description" content="AYLA. Capas para la ciudad. Sin logo, sin reglas, solo textura, solo aire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Announcement bar -->
+  <div class="announce" role="region" aria-label="Anuncios">
+    <button class="announce__btn" data-announce="-1" aria-label="Mensaje anterior">&lsaquo;</button>
+    <p class="announce__text" id="announceText">OBTÉN 10% DE DESCUENTO</p>
+    <button class="announce__btn" data-announce="1" aria-label="Mensaje siguiente">&rsaquo;</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <button class="header__burger" id="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#home">Inicio</a>
+      <a href="#shop">Tienda</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <a href="#home" class="logo" aria-label="AYLA">AYLA</a>
+    <div class="header__icons">
+      <button id="btnSearch" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+      </button>
+      <button id="btnAccount" aria-label="Cuenta">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </button>
+      <button id="btnCart" aria-label="Carrito" class="cart-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <sup id="cartCount">0</sup>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <img class="hero__img" src="assets/hero/hero.jpg" alt="AYLA — Capas para la ciudad" fetchpriority="high">
+      <span class="hero__cue" aria-hidden="true"><i></i>Desliza</span>
+      <div class="hero__copy">
+        <p class="hero__eyebrow">Quietud Urbana</p>
+        <h1 class="hero__title">Capas para la Ciudad</h1>
+        <a href="#shop" class="btn btn--outline">[ Compra el Drop ]</a>
+      </div>
+    </section>
+
+    <!-- Shop: sliders -->
+    <section id="shop" class="shop">
+      <div class="slider-block" data-collection="new">
+        <h2 class="slider-title">Nueva Merch</h2>
+        <div class="slider"><button class="arrow arrow--prev" aria-label="Anterior">&larr;</button><div class="track"></div><button class="arrow arrow--next" aria-label="Siguiente">&rarr;</button></div>
+      </div>
+      <div class="slider-block" data-collection="all">
+        <h2 class="slider-title">General</h2>
+        <div class="slider"><button class="arrow arrow--prev" aria-label="Anterior">&larr;</button><div class="track"></div><button class="arrow arrow--next" aria-label="Siguiente">&rarr;</button></div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__inner" id="marqueeA"></div>
+    </div>
+
+    <!-- Categories -->
+    <section class="cats" id="cats">
+      <ul class="cats__list" id="catsList"></ul>
+      <a href="#shop" class="cats__media" id="catsMedia" aria-label="Ver producto"><img id="catsImg" src="" alt=""></a>
+    </section>
+
+    <!-- Úsala a tu manera -->
+    <section class="banner">
+      <img class="banner__img" src="assets/banner/banner.jpg" alt="">
+      <div class="marquee marquee--banner" aria-hidden="true">
+        <div class="marquee__inner" id="marqueeB"></div>
+      </div>
+      <a href="#shop" class="btn btn--ghost">Comprar Ahora</a>
+    </section>
+
+    <!-- Lookbook -->
+    <section class="lookbook" id="lookbook">
+      <h2 class="section-title">Lookbook</h2>
+      <div class="lookbook__grid">
+        <figure class="ph"><img src="assets/lookbook/1.jpg" alt="Lookbook 1"></figure>
+        <figure class="ph"><img src="assets/lookbook/2.jpg" alt="Lookbook 2"></figure>
+        <figure class="ph"><img src="assets/lookbook/3.jpg" alt="Lookbook 3"></figure>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <h2 class="section-title">Nosotros</h2>
+      <p>AYLA. Sin logo, sin reglas, solo textura, solo aire. Capas para la ciudad.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2 class="section-title">Contacto</h2>
+      <form id="contactForm" class="form" novalidate>
+        <label>Nombre<input name="name" required autocomplete="name"></label>
+        <label>Correo<input name="email" type="email" required autocomplete="email"></label>
+        <label class="form__full">Mensaje<textarea name="message" rows="4" required></textarea></label>
+        <p class="form__error" id="contactError" role="alert"></p>
+        <button class="btn btn--solid" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="wordmark" aria-hidden="true">AYLA</div>
+
+  <footer class="footer">
+    <a href="#home" class="logo logo--footer">AYLA</a>
+    <nav aria-label="Pie de página">
+      <a href="#shop">Tienda</a><a href="#lookbook">Lookbook</a><a href="#about">Nosotros</a><a href="#contact">Contacto</a>
+    </nav>
+    <small>&copy; <span id="year"></span> AYLA. Todos los derechos reservados.</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Overlay for drawers / modals -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <!-- Search -->
+  <div class="search" id="search" role="dialog" aria-label="Buscar" aria-modal="true" hidden>
+    <div class="search__bar">
+      <input id="searchInput" type="search" placeholder="BUSCAR" autocomplete="off">
+      <button class="close" data-close aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="search__results" id="searchResults"></div>
+  </div>
+
+  <!-- Cart drawer -->
+  <aside class="drawer" id="drawer" role="dialog" aria-label="Carrito" aria-modal="true" hidden>
+    <div class="drawer__head"><h3>Carrito</h3><button class="close" data-close aria-label="Cerrar">&times;</button></div>
+    <div class="drawer__body" id="cartItems"></div>
+    <div class="drawer__foot" id="cartFoot">
+      <form class="code" id="codeForm"><input id="codeInput" placeholder="Código de descuento" aria-label="Código de descuento"><button type="submit">Aplicar</button></form>
+      <p class="code__msg" id="codeMsg"></p>
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="subtotal">$0</dd></div>
+        <div id="discountRow" hidden><dt>Descuento (10%)</dt><dd id="discount">-$0</dd></div>
+        <div class="totals__total"><dt>Total</dt><dd id="total">$0</dd></div>
+      </dl>
+      <button class="btn btn--solid btn--block" id="btnCheckout">Finalizar compra</button>
+    </div>
+  </aside>
+
+  <!-- Product modal -->
+  <div class="modal modal--product" id="productModal" role="dialog" aria-modal="true" hidden>
+    <button class="close" data-close aria-label="Cerrar">&times;</button>
+    <div class="pm__media ph" id="pmMedia"><img id="pmImg" alt=""></div>
+    <div class="pm__info">
+      <h3 id="pmName"></h3>
+      <p id="pmPrice"></p>
+      <div class="pm__group"><span>Color — <b id="pmColorName"></b></span><div class="swatches" id="pmColors"></div></div>
+      <div class="pm__group"><span>Talla</span><div class="sizes" id="pmSizes"></div></div>
+      <div class="pm__group"><span>Cantidad</span>
+        <div class="qty"><button id="pmMinus" aria-label="Menos">&minus;</button><output id="pmQty">1</output><button id="pmPlus" aria-label="Más">+</button></div>
+      </div>
+      <p class="form__error" id="pmError" role="alert"></p>
+      <button class="btn btn--solid btn--block" id="pmAdd">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <!-- Checkout modal -->
+  <div class="modal modal--checkout" id="checkoutModal" role="dialog" aria-modal="true" hidden>
+    <button class="close" data-close aria-label="Cerrar">&times;</button>
+    <h3>Finalizar compra</h3>
+    <form id="checkoutForm" class="form" novalidate>
+      <label>Correo<input name="email" type="email" required autocomplete="email"></label>
+      <label>Nombre completo<input name="name" required autocomplete="name"></label>
+      <label class="form__full">Dirección<input name="address" required autocomplete="street-address"></label>
+      <label>Ciudad<input name="city" required autocomplete="address-level2"></label>
+      <label>Código postal<input name="zip" required autocomplete="postal-code"></label>
+      <label class="form__full">País<input name="country" required autocomplete="country-name"></label>
+      <p class="form__error" id="checkoutError" role="alert"></p>
+      <button class="btn btn--solid btn--block" type="submit">Pagar <span id="checkoutTotal"></span></button>
+    </form>
+    <div class="notice" id="checkoutNotice" hidden>
+      <h4>Pagos aún no disponibles</h4>
+      <p>Todavía no hay una pasarela de pago conectada, por lo que no se ha realizado ningún cobro. Tu carrito sigue guardado.</p>
+      <button class="btn btn--outline" data-close>Volver a la tienda</button>
+    </div>
+  </div>
+
+  <!-- Generic notice -->
+  <div class="modal modal--small" id="noticeModal" role="dialog" aria-modal="true" hidden>
+    <button class="close" data-close aria-label="Cerrar">&times;</button>
+    <h4 id="noticeTitle"></h4>
+    <p id="noticeText"></p>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+</html>
